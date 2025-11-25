@@ -6,21 +6,23 @@ import chatSocket from "./sockets/chatSocket.js";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
 app.use(express.json());
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "*"
-    }
+        origin: "*",
+        methods: ["GET", "POST"],
+    },
+    path: "/socket.io",
 });
 
-// Test API
+// API test
 app.get("/", (req, res) => res.send("Chat server running"));
 
-// SOCKET CONNECTION
+// SOCKET CONNECT
 io.on("connection", (socket) => {
     console.log("User connected:", socket.id);
     chatSocket(socket, io);
