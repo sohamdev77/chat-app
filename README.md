@@ -33,4 +33,21 @@ Messages sync instantly across all devices and auto-delete after 2 hours.
 ---
 
 ## 📦 Project Structure
+- backend
+ - node_modules
+ - src
+ - .env
+ - package-lock.json
+ - package.json
+- frontend
+ - public
+ - src
+ - .gitignore
+ - eslint.config.js
+ - index.html
+ - package-lock.json
+ - package.json
+ - README.md
+ - vit.config.js
+ - README.md
 
